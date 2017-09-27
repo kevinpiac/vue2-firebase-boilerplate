@@ -8,7 +8,7 @@ import App from '@/App';
  * PLUGINS
  * ==========
  *
- * import plugins and bootstrap the application
+ * import plugins to bootstrap the application
  */
 
 /* eslint-disable no-unused-vars */
@@ -19,8 +19,9 @@ import plugins from '@/plugins';
  * ROUTER
  * ============
  *
- * import whole router config
+ * import router and bootstrap the application
  */
+
 import router from '@/router';
 
 Vue.config.productionTip = false;

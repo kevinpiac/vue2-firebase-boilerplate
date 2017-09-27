@@ -9,3 +9,4 @@
 /* eslint-disable no-unused-vars */
 import axios from '@/plugins/axios';
 import firebase from '@/plugins/firebase';
+import element from '@/plugins/element-ui';
