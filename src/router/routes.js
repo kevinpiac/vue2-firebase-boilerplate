@@ -7,6 +7,7 @@ const routes = [
   {
     path: '/private',
     name: 'Private',
+    component: () => import('@/pages/Private.vue'),
     meta: {
       auth: true,
     },
