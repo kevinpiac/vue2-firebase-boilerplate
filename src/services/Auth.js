@@ -1,5 +1,7 @@
 /**
- * Auth Service
+ * =============
+ * AUTH SERVICE
+ * =============
  *
  * Allows to abstract the authentication provider. It could be you API, Firebase
  * or any other source.
