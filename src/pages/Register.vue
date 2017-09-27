@@ -45,7 +45,13 @@ export default {
         return;
       }
       this.$firebase.auth().createUserWithEmailAndPassword(this.registerForm.email,
-      this.registerForm.password).catch((err) => {
+      this.registerForm.password).then(() => {
+        this.$message({
+          message: 'You are registered',
+          type: 'success',
+        });
+        this.$router.push({ name: 'Private' });
+      }).catch((err) => {
         if (err) {
           this.$message({
             message: err.message,
