@@ -11,9 +11,14 @@ var prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  API_KEY: '"<YOUR_API_KEY>"',
-  AUTH_DOMAIN: '"<PROJECT_ID>.firebaseapp.com"',
-  DATABASE_URL: '"https://<DATABASE_NAME>.firebaseio.com"',
-  STORAGE_BUCKET: '"<BUCKET>.appspot.com"',
-  MESSAGING_SENDER_ID: '"<SENDER_ID>"',
+
+  /**
+   * Sample firebase config
+   */
+  API_KEY: '"AIzaSyAgG2SoAmnTzdg3Jgz77Xc9C4NutUqPuFU"',
+  AUTH_DOMAIN: '"sample-firebase-app-d87f0.firebaseapp.com"',
+  DATABASE_URL: '"https://sample-firebase-app-d87f0.firebaseio.com"',
+  PROJECT_ID: '"sample-firebase-app-d87f0"',
+  STORAGE_BUCKET: '""',
+  MESSAGING_SENDER_ID: '"748690741616"',
 })

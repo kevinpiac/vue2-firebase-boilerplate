@@ -13,6 +13,7 @@ import App from '@/App';
 
 /* eslint-disable no-unused-vars */
 import axios from '@/plugins/axios';
+import firebase from '@/plugins/firebase';
 import router from '@/router';
 
 Vue.config.productionTip = false;
