@@ -5,10 +5,10 @@ import App from '@/App';
 
 /**
  * ==========
- * PLUGINS
+ * Plugins
  * ==========
  *
- * import plugins to bootstrap the application
+ * Import plugins to bootstrap the application
  */
 
 /* eslint-disable no-unused-vars */
@@ -16,20 +16,43 @@ import plugins from '@/plugins';
 
 /**
  * ============
- * ROUTER
+ * Router
  * ============
  *
- * import router and bootstrap the application
+ * Import router and bootstrap the application
  */
 
 import router from '@/router';
+
+/**
+ * ========
+ * Store
+ * ========
+ *
+ * Import the vuex store
+ */
+import store from '@/store';
 
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
+  /**
+   * Bind Vue instance to Html element
+   * @type {String}
+   */
   el: '#app',
+
+  /**
+   * Bind router
+   */
   router,
+
+  /**
+   * Bind store
+   */
+  store,
+
   template: '<App/>',
   components: { App },
 });

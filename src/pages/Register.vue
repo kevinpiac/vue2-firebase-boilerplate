@@ -50,6 +50,7 @@ export default {
           message: 'You are registered',
           type: 'success',
         });
+        this.$store.dispatch('auth/login');
         this.$router.push({ name: 'Private' });
       }).catch((err) => {
         if (err) {
