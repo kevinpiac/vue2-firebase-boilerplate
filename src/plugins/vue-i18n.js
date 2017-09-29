@@ -11,6 +11,12 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
+/**
+ * Import every module related locale and bootstrap the plugin
+ */
+import loginPage from '@/pages/Login/locale';
+import registerPage from '@/pages/Register/locale';
+
 Vue.use(VueI18n);
 
 const messages = {
@@ -20,6 +26,8 @@ const messages = {
       register: 'Sign up',
       logout: 'Logout',
     },
+    loginPage: loginPage.en,
+    registerPage: registerPage.en,
   },
   fr: {
     message: {
@@ -27,11 +35,14 @@ const messages = {
       register: 'Créer un compte',
       logout: 'Déconnexion',
     },
+    loginPage: loginPage.fr,
+    registerPage: registerPage.fr,
   },
 };
 
 const i18n = new VueI18n({
   locale: 'en',
+  fallbackLocale: 'fr',
   messages,
 });
 

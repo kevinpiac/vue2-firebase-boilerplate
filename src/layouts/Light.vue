@@ -1,13 +1,12 @@
 <template lang="html">
   <div>
-    <p>{{ $t('lol.mdr')}}</p>
     <nav-menu :items="items"></nav-menu>
     <slot></slot>
   </div>
 </template>
 
 <script>
-import NavMenu from '@/components/NavMenu';
+import NavMenu from '@/components/NavMenu/Index';
 
 export default {
   name: 'light-layout',

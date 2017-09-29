@@ -9,7 +9,7 @@ const routes = [
   {
     path: '/private',
     name: 'Private',
-    component: () => import('@/pages/Private.vue'),
+    component: () => import('@/pages/Private/Index'),
     meta: {
       auth: true,
     },
@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('@/pages/Login.vue'),
+    component: () => import('@/pages/Login/Index'),
     meta: {
       guest: true,
     },
@@ -25,7 +25,7 @@ const routes = [
   {
     path: '/register',
     name: 'Register',
-    component: () => import('@/pages/Register.vue'),
+    component: () => import('@/pages/Register/Index'),
     meta: {
       guest: true,
     },

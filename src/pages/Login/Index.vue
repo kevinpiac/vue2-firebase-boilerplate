@@ -1,18 +1,18 @@
-<template lang="html">
+<template>
   <light-layout>
-    <h1>{{ pageTitle}}</h1>
+    <h1>{{ $t('loginPage.title') }}</h1>
     <el-row type="flex" justify="center">
       <el-col :span="5">
         <el-card class="box-card">
-          <el-form :model="registerForm">
+          <el-form :model="loginForm">
             <el-form-item label="Email" prop="email">
-              <el-input type="email" v-model="registerForm.email" auto-complete="on"></el-input>
+              <el-input type="email" v-model="loginForm.email" auto-complete="on"></el-input>
             </el-form-item>
             <el-form-item label="Password" prop="password">
-              <el-input type="password" v-model="registerForm.password" auto-complete="off"></el-input>
+              <el-input type="password" v-model="loginForm.password" auto-complete="off"></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" @click="onRegister">Register</el-button>
+              <el-button type="primary" @click="onLogin">{{ $t('loginPage.submit') }}</el-button>
             </el-form-item>
           </el-form>
         </el-card>
@@ -25,32 +25,31 @@
 import LightLayout from '@/layouts/Light';
 
 export default {
-  name: 'register-page',
+  name: 'login-page',
   components: { LightLayout },
   data() {
     return {
-      pageTitle: 'Register',
-      registerForm: {
+      loginForm: {
         email: null,
         password: null,
       },
     };
   },
   methods: {
-    onRegister() {
-      const email = this.registerForm.email;
-      const password = this.registerForm.password;
+    onLogin() {
+      const email = this.loginForm.email;
+      const password = this.loginForm.password;
 
       if (!email || !password) {
         return;
       }
-      this.$firebase.auth().createUserWithEmailAndPassword(this.registerForm.email,
-      this.registerForm.password).then(() => {
+      this.$firebase.auth().signInWithEmailAndPassword(email,
+      password).then((user) => {
         this.$message({
-          message: 'You are registered',
+          message: 'You are logged in',
           type: 'success',
         });
-        this.$store.dispatch('auth/login');
+        this.$store.dispatch('auth/login', user);
         this.$router.push({ name: 'Private' });
       }).catch((err) => {
         if (err) {

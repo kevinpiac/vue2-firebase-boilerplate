@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import NavMenu from '@/components/NavMenu';
+import NavMenu from '@/components/NavMenu/Index';
 
 export default {
   name: 'default-layout',

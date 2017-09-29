@@ -1,18 +1,18 @@
-<template>
+<template lang="html">
   <light-layout>
-    <h1>{{ pageTitle}}</h1>
+    <h1>{{ $t('registerPage.title') }}</h1>
     <el-row type="flex" justify="center">
       <el-col :span="5">
         <el-card class="box-card">
-          <el-form :model="loginForm">
+          <el-form :model="registerForm">
             <el-form-item label="Email" prop="email">
-              <el-input type="email" v-model="loginForm.email" auto-complete="on"></el-input>
+              <el-input type="email" v-model="registerForm.email" auto-complete="on"></el-input>
             </el-form-item>
             <el-form-item label="Password" prop="password">
-              <el-input type="password" v-model="loginForm.password" auto-complete="off"></el-input>
+              <el-input type="password" v-model="registerForm.password" auto-complete="off"></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" @click="onLogin">Login</el-button>
+              <el-button type="primary" @click="onRegister">{{ $t('registerPage.submit') }}</el-button>
             </el-form-item>
           </el-form>
         </el-card>
@@ -25,32 +25,32 @@
 import LightLayout from '@/layouts/Light';
 
 export default {
-  name: 'login-page',
+  name: 'register-page',
   components: { LightLayout },
   data() {
     return {
-      pageTitle: 'Login',
-      loginForm: {
+      pageTitle: 'Register',
+      registerForm: {
         email: null,
         password: null,
       },
     };
   },
   methods: {
-    onLogin() {
-      const email = this.loginForm.email;
-      const password = this.loginForm.password;
+    onRegister() {
+      const email = this.registerForm.email;
+      const password = this.registerForm.password;
 
       if (!email || !password) {
         return;
       }
-      this.$firebase.auth().signInWithEmailAndPassword(email,
-      password).then((user) => {
+      this.$firebase.auth().createUserWithEmailAndPassword(this.registerForm.email,
+      this.registerForm.password).then(() => {
         this.$message({
-          message: 'You are logged in',
+          message: 'You are registered',
           type: 'success',
         });
-        this.$store.dispatch('auth/login', user);
+        this.$store.dispatch('auth/login');
         this.$router.push({ name: 'Private' });
       }).catch((err) => {
         if (err) {
