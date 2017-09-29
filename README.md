@@ -1,6 +1,30 @@
-# vue2-lightplate
+# Vue2 boilerplate
 
-> A super light vuejs 2 boiletplate
+## Status
+
+Work in progress 💪
+
+## Description
+
+This is a light Vuejs 2 + 🔥 Firebase boilerplate for making small to large scale web apps.
+
+Project structure is inspired by a year of experiments using VueJS and the fantastic work of [petervmeijgaard](https://github.com/petervmeijgaard/vue-2-boilerplate).
+
+## Bases on best plugins
+
+- [x] Vuex Store
+- [x] Element ui (lightweight and powerful VueJs components lib)
+- [x] Vue-Router
+- [x] Firebase
+- [x] Axios
+
+## What's included
+
+- [x] Efficient project structure
+- [x] Login, Register and Private page
+- [x] Authentication and security management
+- [ ] Roles management
+- [ ] Even more...
 
 ## Build Setup
 
@@ -14,17 +38,7 @@ npm run dev
 # build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+# You're all set
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
