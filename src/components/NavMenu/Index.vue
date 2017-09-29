@@ -19,11 +19,11 @@
 
 <script>
 /**
- * ========
- * NavMenu
- * ========
- * 
- * Simple and efficient navigation menu.
+ * =============
+ * Nav Menu
+ * =============
+ *
+ * Sample navigation with element-ui component.
  */
 import LocaleSwitch from '@/components/LocaleSwitch/Index';
 

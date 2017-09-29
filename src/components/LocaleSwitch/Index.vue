@@ -12,14 +12,14 @@
 </template>
 
 <script>
+/**
+ * =============
+ * LocaleSwitch
+ * =============
+ *
+ * Sample component to show how you easily you can switch locale.
+ */
 export default {
-  /**
-   * =============
-   * LocaleSwitch
-   * =============
-   * 
-   * Sample component to show how you easily you can switch locale.
-   */
   data() {
     return {
       selected: this.$store.getters['locale/currentLocale'],
