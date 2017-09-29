@@ -18,6 +18,13 @@
 </template>
 
 <script>
+/**
+ * ========
+ * NavMenu
+ * ========
+ * 
+ * Simple and efficient navigation menu.
+ */
 import LocaleSwitch from '@/components/LocaleSwitch/Index';
 
 export default {

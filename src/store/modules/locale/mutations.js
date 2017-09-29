@@ -13,6 +13,8 @@
  export default {
    /**
     * Switch
+    *
+    * Used to change the locale value.
     */
    [types.SWITCH](state, locale) {
      state.locale = locale;

@@ -19,6 +19,9 @@ import registerPage from '@/pages/Register/locale';
 
 Vue.use(VueI18n);
 
+/**
+ * Gather all sentences
+ */
 const messages = {
   en: {
     message: {
@@ -40,6 +43,10 @@ const messages = {
   },
 };
 
+
+/**
+ * Init i18n
+ */
 const i18n = new VueI18n({
   locale: 'en',
   fallbackLocale: 'en',
