@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       items: [
-        { label: 'Sign Out', path: 'logout' },
+        { label: this.$t('message.logout'), path: 'logout' },
         { label: 'Private', path: 'private' },
       ],
     };

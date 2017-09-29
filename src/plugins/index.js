@@ -7,7 +7,8 @@
  */
 
 /* eslint-disable no-unused-vars */
-import axios from '@/plugins/axios';
-import firebase from '@/plugins/firebase';
-import element from '@/plugins/element-ui';
-import vuex from '@/plugins/vuex';
+import axios from './axios';
+import firebase from './firebase';
+import element from './element-ui';
+import vuex from './vuex';
+import i18n from './vue-i18n';

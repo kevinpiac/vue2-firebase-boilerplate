@@ -1,5 +1,6 @@
 <template lang="html">
   <div>
+    <p>{{ $t('lol.mdr')}}</p>
     <nav-menu :items="items"></nav-menu>
     <slot></slot>
   </div>
@@ -14,8 +15,8 @@ export default {
   data() {
     return {
       items: [
-        { label: 'Sign In', path: 'login' },
-        { label: 'Sign Up', path: 'register' },
+        { label: this.$t('message.login'), path: 'login' },
+        { label: this.$t('message.register'), path: 'register' },
       ],
     };
   },

@@ -15,6 +15,11 @@ import App from '@/App';
 import plugins from '@/plugins';
 
 /**
+ * import localization plugin
+ */
+import i18n from '@/plugins/vue-i18n';
+
+/**
  * ============
  * Router
  * ============
@@ -52,6 +57,11 @@ new Vue({
    * Bind store
    */
   store,
+
+  /**
+   * Bind localization plugin
+   */
+  i18n,
 
   template: '<App/>',
   components: { App },
