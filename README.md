@@ -10,7 +10,7 @@ This is a light Vuejs 2 + 🔥 Firebase boilerplate for making medium to large w
 
 Project structure is inspired by a year of experiments using VueJS and the fantastic work of [petervmeijgaard](https://github.com/petervmeijgaard/vue-2-boilerplate).
 
-## Bases on best plugins
+## Based on best plugins
 
 - [x] Vuex Store
 - [x] Element ui (lightweight and powerful VueJs components lib)
