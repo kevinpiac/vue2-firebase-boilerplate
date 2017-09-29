@@ -14,8 +14,8 @@ export default {
   computed: {
     items() {
       return [
-        { label: this.$t('message.login'), path: 'login' },
-        { label: this.$t('message.register'), path: 'register' },
+        { label: this.$t('message.login'), name: 'Login' },
+        { label: this.$t('message.register'), name: 'Register' },
       ];
     },
   },
