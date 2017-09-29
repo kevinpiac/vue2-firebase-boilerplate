@@ -9,8 +9,8 @@
 import * as types from './mutation-types';
 
 export default {
-  login: ({ commit }) => {
-    commit(types.LOGIN);
+  login: ({ commit }, user) => {
+    commit(types.LOGIN, user);
   },
   logout: ({ commit }) => {
     commit(types.LOGOUT);

@@ -1,7 +1,6 @@
 <template>
   <light-layout>
     <h1>{{ pageTitle}}</h1>
-    <h1>{{ isAuthenticated }}</h1>
     <el-row type="flex" justify="center">
       <el-col :span="5">
         <el-card class="box-card">
@@ -24,7 +23,6 @@
 
 <script>
 import LightLayout from '@/layouts/Light';
-import { mapGetters } from 'vuex';
 
 export default {
   name: 'login-page',
@@ -38,10 +36,6 @@ export default {
       },
     };
   },
-  computed: {
-    /* example store usage */
-    ...mapGetters({ isAuthenticated: 'auth/isAuthenticated' }),
-  },
   methods: {
     onLogin() {
       const email = this.loginForm.email;
@@ -51,12 +45,12 @@ export default {
         return;
       }
       this.$firebase.auth().signInWithEmailAndPassword(email,
-      password).then(() => {
+      password).then((user) => {
         this.$message({
           message: 'You are logged in',
           type: 'success',
         });
-        this.$store.dispatch('auth/login');
+        this.$store.dispatch('auth/login', user);
         this.$router.push({ name: 'Private' });
       }).catch((err) => {
         if (err) {

@@ -14,13 +14,15 @@
    /**
     * Login
     */
-   [types.LOGIN](state) {
+   [types.LOGIN](state, user) {
      state.authenticated = true;
+     state.user = user;
    },
    /**
     * Logout
     */
    [types.LOGOUT](state) {
      state.authenticated = false;
+     state.user = null;
    },
  };

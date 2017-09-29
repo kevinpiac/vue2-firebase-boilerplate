@@ -1,12 +1,24 @@
 <template>
   <div id="app">
+    {{ isAuthenticated }}
+    <pre>
+      {{ user }}
+    </pre>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'app',
+  computed: {
+    ...mapGetters({
+      isAuthenticated: 'auth/isAuthenticated',
+      user: 'auth/currentUser',
+    }),
+  },
 };
 </script>
 

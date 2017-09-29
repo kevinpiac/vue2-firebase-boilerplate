@@ -11,7 +11,7 @@ const router = new Router({
 });
 
 /**
- * Apply a guard method before each route to check if it requiresAuth
+ * Apply a guard method before each route to check if it requires auth
  */
 router.beforeEach((to, from, next) => {
   if (to.meta.auth === true) {
