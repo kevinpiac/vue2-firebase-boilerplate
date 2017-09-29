@@ -1,0 +1,37 @@
+<template lang="html">
+  <el-select
+    v-model="selected"
+    @change="changed()">
+    <el-option
+      v-for="item in locales"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value">
+    </el-option>
+  </el-select>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      selected: this.$store.getters['locale/currentLocale'],
+      locales: [{
+        label: 'English',
+        value: 'en',
+      }, {
+        label: 'Français',
+        value: 'fr',
+      }],
+    };
+  },
+  methods: {
+    changed() {
+      this.$store.dispatch('locale/switch', this.selected);
+    },
+  },
+};
+</script>
+
+<style scoped>
+</style>

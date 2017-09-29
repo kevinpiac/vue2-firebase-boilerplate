@@ -5,11 +5,11 @@
       <el-col :span="5">
         <el-card class="box-card">
           <el-form :model="loginForm">
-            <el-form-item label="Email" prop="email">
-              <el-input type="email" v-model="loginForm.email" auto-complete="on"></el-input>
+            <el-form-item :label="$t('loginPage.emailLabel')" prop="email">
+              <el-input type="email" v-model="loginForm.email" auto-complete="on" :placeholder="$t('loginPage.emailPlaceholder')"></el-input>
             </el-form-item>
-            <el-form-item label="Password" prop="password">
-              <el-input type="password" v-model="loginForm.password" auto-complete="off"></el-input>
+            <el-form-item :label="$t('loginPage.passwordLabel')" prop="password">
+              <el-input type="password" v-model="loginForm.password" auto-complete="off" :placeholder="$t('loginPage.passwordPlaceholder')"></el-input>
             </el-form-item>
             <el-form-item>
               <el-button type="primary" @click="onLogin">{{ $t('loginPage.submit') }}</el-button>

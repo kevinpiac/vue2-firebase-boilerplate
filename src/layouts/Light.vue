@@ -11,13 +11,13 @@ import NavMenu from '@/components/NavMenu/Index';
 export default {
   name: 'light-layout',
   components: { NavMenu },
-  data() {
-    return {
-      items: [
+  computed: {
+    items() {
+      return [
         { label: this.$t('message.login'), path: 'login' },
         { label: this.$t('message.register'), path: 'register' },
-      ],
-    };
+      ];
+    },
   },
 };
 </script>

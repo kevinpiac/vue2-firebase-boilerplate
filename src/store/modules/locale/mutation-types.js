@@ -1,16 +1,14 @@
 /**
  * ======================================
- * Mutation types for the auth module
+ * Mutation types for the locale module
  * ======================================
  *
  * The mutation types that are available
- * on the auth module.
+ * on the locale module.
  */
 
-export const LOGIN = 'LOGIN';
-export const LOGOUT = 'LOGOUT';
+export const SWITCH = 'SWITCH';
 
 export default {
-  LOGIN,
-  LOGOUT,
+  SWITCH,
 };

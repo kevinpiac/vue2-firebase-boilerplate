@@ -14,6 +14,7 @@ import createLogger from 'vuex/dist/logger';
 
 // Modules
 import auth from './modules/auth';
+import locale from './modules/locale';
 
 Vue.use(Vuex);
 
@@ -25,6 +26,7 @@ export default new Vuex.Store({
    */
   modules: {
     auth,
+    locale,
   },
 
   /**
