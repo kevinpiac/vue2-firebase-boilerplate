@@ -6,6 +6,7 @@
  * https://vuex.vuejs.org/en/actions.html
  */
 
+import firebase from '@/plugins/firebase';
 import * as types from './mutation-types';
 
 export default {
@@ -13,6 +14,8 @@ export default {
     commit(types.LOGIN, user);
   },
   logout: ({ commit }) => {
-    commit(types.LOGOUT);
+    firebase.logout().then(() => {
+      commit(types.LOGOUT);
+    });
   },
 };

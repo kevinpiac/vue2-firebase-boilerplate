@@ -1,14 +1,24 @@
 <template lang="html">
   <div>
-    <h1>This is your default layout</h1>
+    <nav-menu :items="items"></nav-menu>
     <slot></slot>
-    <p>End of default layout</p>
   </div>
 </template>
 
 <script>
+import NavMenu from '@/components/NavMenu';
+
 export default {
   name: 'default-layout',
+  components: { NavMenu },
+  data() {
+    return {
+      items: [
+        { label: 'Sign Out', path: 'logout' },
+        { label: 'Private', path: 'private' },
+      ],
+    };
+  },
 };
 </script>
 

@@ -1,4 +1,4 @@
-import getUserStatus from '@/plugins/firebase';
+import firebase from '@/plugins/firebase';
 
 export default {
   /**
@@ -10,7 +10,7 @@ export default {
    * @return {void}
    */
   guardRoute(to, from, next) {
-    getUserStatus().then(() => {
+    firebase.getUserStatus().then(() => {
       next();
     }).catch(() => {
       next({ name: 'Login' });

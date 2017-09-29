@@ -1,3 +1,5 @@
+import store from '@/store';
+
 const routes = [
   {
     path: '/',
@@ -26,6 +28,14 @@ const routes = [
     component: () => import('@/pages/Register.vue'),
     meta: {
       guest: true,
+    },
+  },
+  {
+    path: '/logout',
+    name: 'Logout',
+    beforeEnter(to, from, next) {
+      store.dispatch('auth/logout');
+      next({ name: 'Register' });
     },
   },
   {

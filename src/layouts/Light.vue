@@ -1,14 +1,24 @@
 <template lang="html">
   <div>
-    <h1>This is your light layout</h1>
+    <nav-menu :items="items"></nav-menu>
     <slot></slot>
-    <p>End of light layout</p>
   </div>
 </template>
 
 <script>
+import NavMenu from '@/components/NavMenu';
+
 export default {
   name: 'light-layout',
+  components: { NavMenu },
+  data() {
+    return {
+      items: [
+        { label: 'Sign In', path: 'login' },
+        { label: 'Sign Up', path: 'register' },
+      ],
+    };
+  },
 };
 </script>
 

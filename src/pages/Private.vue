@@ -1,20 +1,18 @@
 <template lang="html">
-  <div class="">
-    <h1>This page is shown only to authenticated users.</h1>
-    <button @click="goRegister" type="button" name="button">Register</button>
-  </div>
+  <default-layout>
+    <h1>Private page</h1>
+    <p>This page is shown only to authenticated users</p>
+  </default-layout>
 </template>
 
 <script>
+import DefaultLayout from '@/layouts/Default';
+
 export default {
   name: 'private-page',
-  methods: {
-    goRegister() {
-      this.$router.push({ name: 'Register' });
-    },
-  },
+  components: { DefaultLayout },
 };
 </script>
 
-<style lang="css">
+<style scoped>
 </style>

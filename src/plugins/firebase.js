@@ -40,6 +40,8 @@ Object.defineProperty(Vue.prototype, '$firebase', {
 Firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch('auth/login', user);
+  } else {
+    store.dispatch('auth/logout');
   }
 });
 
@@ -59,4 +61,13 @@ const getUserStatus = function () {
   });
 };
 
-export default getUserStatus;
+/**
+ * Logout the user
+ */
+const logout = function () {
+  return new Promise((resolve, reject) => {
+    Firebase.auth().signOut().then(() => resolve()).catch(() => reject());
+  });
+};
+
+export default { getUserStatus, logout };
