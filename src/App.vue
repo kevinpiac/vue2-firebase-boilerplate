@@ -14,10 +14,7 @@ export default {
 html, body {
   margin: 0!important;
   padding: 0!important;
-}
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif!important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
