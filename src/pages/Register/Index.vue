@@ -43,11 +43,7 @@ export default {
       const email = this.registerForm.email;
       const password = this.registerForm.password;
 
-      if (!email || !password) {
-        return;
-      }
-      this.$firebase.auth().createUserWithEmailAndPassword(this.registerForm.email,
-      this.registerForm.password).then(() => {
+      this.$firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
         this.$message({
           message: 'You are registered',
           type: 'success',

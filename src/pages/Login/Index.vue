@@ -42,11 +42,7 @@ export default {
       const email = this.loginForm.email;
       const password = this.loginForm.password;
 
-      if (!email || !password) {
-        return;
-      }
-      this.$firebase.auth().signInWithEmailAndPassword(email,
-      password).then((user) => {
+      this.$firebase.auth().signInWithEmailAndPassword(email, password).then((user) => {
         this.$message({
           message: 'You are logged in',
           type: 'success',
