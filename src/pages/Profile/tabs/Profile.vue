@@ -44,11 +44,7 @@ export default {
   },
   methods: {
     initData() {
-      const userId = this.$firebase.auth().currentUser.uid;
-      const userRef = this.$firebase.database().ref(`/users/${userId}`);
-      userRef.once('value').then((snapshot) => {
-        console.log('snapshot', snapshot);
-      });
+      //
     },
   },
 };

@@ -8,7 +8,7 @@ export default {
         fullNameLabel: 'Nom complet',
         fullNamePlaceholder: 'votre nom complet',
         phoneLabel: 'Numéro de téléphone',
-        phonePlaceholder: '+33 (6) 50 50 50 32',
+        phonePlaceholder: '+33(6) 50 50 50 32',
       },
     },
     credentials: {
