@@ -7,9 +7,9 @@ const routes = [
     redirect: { name: 'Login' },
   },
   {
-    path: '/private',
-    name: 'Private',
-    component: () => import('@/pages/Private/Index'),
+    path: '/profile',
+    name: 'Profile',
+    component: () => import('@/pages/Profile/Index'),
     meta: {
       auth: true,
     },

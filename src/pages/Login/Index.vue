@@ -50,7 +50,7 @@ export default {
           type: 'success',
         });
         this.$store.dispatch('auth/login', user);
-        this.$router.push({ name: 'Private' });
+        this.$router.push({ name: 'Profile' });
       }).catch((err) => {
         if (err) {
           this.$message({

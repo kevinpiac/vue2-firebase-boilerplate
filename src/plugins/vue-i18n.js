@@ -16,6 +16,8 @@ import VueI18n from 'vue-i18n';
  */
 import loginPage from '@/pages/Login/locale';
 import registerPage from '@/pages/Register/locale';
+import profilePage from '@/pages/Profile/locale';
+import reauthenticateMixin from '@/mixins/Reauthenticate/locale';
 
 Vue.use(VueI18n);
 
@@ -31,6 +33,8 @@ const messages = {
     },
     loginPage: loginPage.en,
     registerPage: registerPage.en,
+    profilePage: profilePage.en,
+    reauthenticateMixin: reauthenticateMixin.en,
   },
   fr: {
     message: {
@@ -40,6 +44,8 @@ const messages = {
     },
     loginPage: loginPage.fr,
     registerPage: registerPage.fr,
+    profilePage: profilePage.fr,
+    reauthenticateMixin: reauthenticateMixin.fr,
   },
 };
 

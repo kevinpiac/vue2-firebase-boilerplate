@@ -15,7 +15,7 @@ export default {
     return {
       items: [
         { label: this.$t('message.logout'), name: 'Logout' },
-        { label: 'Private', name: 'Private' },
+        { label: 'Profile', name: 'Profile' },
       ],
     };
   },
