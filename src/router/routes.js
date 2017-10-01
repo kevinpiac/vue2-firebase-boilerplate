@@ -35,7 +35,7 @@ const routes = [
     name: 'Logout',
     beforeEnter(to, from, next) {
       store.dispatch('auth/logout');
-      next({ name: 'Register' });
+      next({ name: 'Login' });
     },
   },
   {
