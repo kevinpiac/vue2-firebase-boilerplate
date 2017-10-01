@@ -41,7 +41,7 @@ export default {
   computed: {
     /**
      * Important!
-     * Store rules in computed property to be sure the translation works
+     * Keep rules in computed property to be sure the translation works
      * on selected language changes
      */
     rules() {
