@@ -2,7 +2,7 @@
   <light-layout>
     <h1>{{ $t('loginPage.title') }}</h1>
     <el-row type="flex" justify="center">
-      <el-col :span="5">
+      <el-col :span="7" :xs="{span:20}" :lg="{span:5}">
         <el-card class="box-card">
           <el-form :model="loginForm">
             <el-form-item :label="$t('loginPage.emailLabel')" prop="email">
