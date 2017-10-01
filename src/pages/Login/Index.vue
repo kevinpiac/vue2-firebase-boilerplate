@@ -15,6 +15,8 @@
               <el-button type="primary" @click="onLogin">{{ $t('loginPage.submit') }}</el-button>
             </el-form-item>
           </el-form>
+          <p>{{ $t('loginPage.dontHaveAnAccount.message') }}</p>
+          <el-button type="success" @click="$router.push({ name: 'Register' })">{{ $t('loginPage.dontHaveAnAccount.button') }}</el-button>
         </el-card>
       </el-col>
     </el-row>

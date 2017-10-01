@@ -5,4 +5,8 @@ export default {
   emailPlaceholder: 'your email',
   passwordLabel: 'Password',
   passwordPlaceholder: 'your password',
+  alreadyHaveAnAccount: {
+    message: 'Already have an account?',
+    button: 'Signin now',
+  },
 };

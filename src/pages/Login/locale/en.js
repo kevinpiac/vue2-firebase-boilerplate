@@ -5,4 +5,8 @@ export default {
   emailPlaceholder: 'your email',
   passwordLabel: 'Password',
   passwordPlaceholder: 'your password',
+  dontHaveAnAccount: {
+    message: "Dont't have an account yet?",
+    button: 'Signup now',
+  },
 };
