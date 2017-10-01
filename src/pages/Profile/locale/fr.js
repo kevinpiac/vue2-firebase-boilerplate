@@ -9,6 +9,11 @@ export default {
         fullNamePlaceholder: 'votre nom complet',
         phoneLabel: 'Numéro de téléphone',
         phonePlaceholder: '+33(6) 50 50 50 32',
+        updateProfile: 'Mettre à jour',
+        onProfileUpdated: 'Votre profil a été mis à jour',
+        rules: {
+          requiredField: 'Le champ {fieldName} est requis',
+        },
       },
     },
     credentials: {

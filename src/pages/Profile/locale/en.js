@@ -8,6 +8,11 @@ export default {
         fullNamePlaceholder: 'your full name',
         phoneLabel: 'Phone Number',
         phonePlaceholder: '+33(6) 50 50 50 32',
+        updateProfile: 'Update',
+        onProfileUpdated: 'Your profile has been updated',
+        rules: {
+          requiredField: 'The {fieldName} value is required',
+        },
       },
     },
     credentials: {

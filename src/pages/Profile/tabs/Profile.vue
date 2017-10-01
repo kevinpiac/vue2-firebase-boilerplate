@@ -4,7 +4,7 @@
       <h1>🔥 WORK IN PROGRESS 🔥</h1>
       <br>
       <el-card>
-        <el-form :model="profileForm">
+        <el-form :rules="rules" ref="profileForm" :model="profileForm">
           <el-form-item :label="$t('profilePage.tabs.profile.profileForm.fullNameLabel')" prop="fullName">
             <el-input
               type="text"
@@ -21,6 +21,9 @@
               :placeholder="$t('profilePage.tabs.profile.profileForm.phonePlaceholder')">
             </el-input>
           </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="updateProfile()">{{ $t('profilePage.tabs.profile.profileForm.updateProfile')}}</el-button>
+          </el-form-item>
         </el-form>
       </el-card>
     </el-col>
@@ -28,8 +31,11 @@
 </template>
 
 <script>
+import StoreGetters from '@/mixins/StoreGetters';
+
 export default {
   name: 'profile-tab',
+  mixins: [StoreGetters],
   mounted() {
     this.initData();
   },
@@ -38,13 +44,59 @@ export default {
       profileForm: {
         fullName: null,
         phone: null,
-        company: null,
       },
     };
   },
+  computed: {
+    /**
+     * Important!
+     * Store rules in computed property to be sure the translation works
+     * on selected language changes
+     */
+    rules() {
+      return {
+        fullName: {
+          required: true,
+          message: this.$t('profilePage.tabs.profile.profileForm.rules.requiredField', {
+            fieldName: this.$t('profilePage.tabs.profile.profileForm.fullNameLabel'),
+          }),
+        },
+      };
+    },
+  },
   methods: {
     initData() {
-      //
+      /**
+       * Init data using mixin (StoreGetters) computed props
+       */
+      this.profileForm.fullName = this.currentUserDisplayName;
+      this.profileForm.phone = this.currentUserPhoneNumber;
+    },
+    updateProfile() {
+      /**
+       * Check for validation using Element validation
+       *
+       * http://element.eleme.io/#/en-US/component/form
+       */
+      this.$refs.profileForm.validate((valid) => {
+        if (valid) {
+          const user = this.$firebase.auth().currentUser;
+          user.updateProfile({
+            displayName: this.profileForm.fullName,
+            phoneNumber: this.profileForm.phone,
+          }).then(() => {
+            this.$message({
+              message: this.$t('profilePage.tabs.profile.profileForm.onProfileUpdated'),
+              type: 'success',
+            });
+          }).catch((err) => {
+            this.$message({
+              message: err.message,
+              type: 'error',
+            });
+          });
+        }
+      });
     },
   },
 };
