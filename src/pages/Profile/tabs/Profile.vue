@@ -5,24 +5,24 @@
       <br>
       <el-card>
         <el-form :rules="rules" ref="profileForm" :model="profileForm">
-          <el-form-item :label="$t('profilePage.tabs.profile.profileForm.fullNameLabel')" prop="fullName">
+          <el-form-item :label="$t('tabs.profile.profileForm.fullNameLabel')" prop="fullName">
             <el-input
               type="text"
               v-model="profileForm.fullName"
               auto-complete="on"
-              :placeholder="$t('profilePage.tabs.profile.profileForm.fullNamePlaceholder')">
+              :placeholder="$t('tabs.profile.profileForm.fullNamePlaceholder')">
             </el-input>
           </el-form-item>
-          <el-form-item :label="$t('profilePage.tabs.profile.profileForm.phoneLabel')">
+          <el-form-item :label="$t('tabs.profile.profileForm.phoneLabel')">
             <el-input
               type="tel"
               v-model="profileForm.phone"
               auto-complete="on"
-              :placeholder="$t('profilePage.tabs.profile.profileForm.phonePlaceholder')">
+              :placeholder="$t('tabs.profile.profileForm.phonePlaceholder')">
             </el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="updateProfile()">{{ $t('profilePage.tabs.profile.profileForm.updateProfile')}}</el-button>
+            <el-button type="primary" @click="updateProfile()">{{ $t('tabs.profile.profileForm.updateProfile')}}</el-button>
           </el-form-item>
         </el-form>
       </el-card>
@@ -32,9 +32,17 @@
 
 <script>
 import StoreGetters from '@/mixins/Store/getters';
+import Locale from '../locale';
 
 export default {
   name: 'profile-tab',
+  /**
+   * Set component specific locale
+   */
+  i18n: {
+    messages: Locale,
+  },
+
   mixins: [StoreGetters],
   mounted() {
     this.initData();
@@ -57,8 +65,8 @@ export default {
       return {
         fullName: {
           required: true,
-          message: this.$t('profilePage.tabs.profile.profileForm.rules.requiredField', {
-            fieldName: this.$t('profilePage.tabs.profile.profileForm.fullNameLabel'),
+          message: this.$t('tabs.profile.profileForm.rules.requiredField', {
+            fieldName: this.$t('tabs.profile.profileForm.fullNameLabel'),
           }),
         },
       };
@@ -96,7 +104,7 @@ export default {
             this.$store.dispatch('auth/updateUser');
 
             this.$message({
-              message: this.$t('profilePage.tabs.profile.profileForm.onProfileUpdated'),
+              message: this.$t('tabs.profile.profileForm.onProfileUpdated'),
               type: 'success',
             });
           }).catch((err) => {

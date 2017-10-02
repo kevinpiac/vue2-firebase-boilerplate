@@ -12,40 +12,33 @@ import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
 /**
- * Import every module related locale and bootstrap the plugin
+ * ===========
+ * IMPORTANT:
+ * ===========
+ *
+ * We use a component self contained locale arch.
+ * It means that each component is responsible of defining and importing its own
+ * locale files.
+ *
+ * This file is only import OR containing global translations messages.
+ * I encourage you to use very few global translations. Use them only when it
+ * gives a very important improvement.
+ *
  */
-import loginPage from '@/pages/Login/locale';
-import registerPage from '@/pages/Register/locale';
-import profilePage from '@/pages/Profile/locale';
-import reauthenticateMixin from '@/mixins/Reauthenticate/locale';
 
 Vue.use(VueI18n);
 
 /**
- * Gather all sentences
+ * Gather global sentences
  */
 const messages = {
   en: {
-    message: {
-      login: 'Sign in',
-      register: 'Sign up',
-      logout: 'Logout',
+    global: {
+      // this object will contain global messages
     },
-    loginPage: loginPage.en,
-    registerPage: registerPage.en,
-    profilePage: profilePage.en,
-    reauthenticateMixin: reauthenticateMixin.en,
   },
   fr: {
-    message: {
-      login: 'Connexion',
-      register: 'Créer un compte',
-      logout: 'Déconnexion',
-    },
-    loginPage: loginPage.fr,
-    registerPage: registerPage.fr,
-    profilePage: profilePage.fr,
-    reauthenticateMixin: reauthenticateMixin.fr,
+    // this object will contain global messages
   },
 };
 

@@ -5,6 +5,7 @@ export default {
   emailPlaceholder: 'votre email',
   passwordLabel: 'Mot de passe',
   passwordPlaceholder: 'votre mot de passe',
+  onLoggedIn: 'Vous êtes connecté',
   rules: {
     requiredField: 'Le champ {fieldName} est requis',
     typeEmail: "Le format d'email n'est pas valide",

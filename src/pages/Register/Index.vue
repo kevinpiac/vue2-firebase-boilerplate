@@ -1,29 +1,29 @@
 <template lang="html">
   <light-layout>
-    <h1>{{ $t('registerPage.title') }}</h1>
+    <h1>{{ $t('title') }}</h1>
     <el-row type="flex" justify="center">
       <el-col :span="7" :xs="{span:20}" :lg="{span:5}">
         <el-card class="box-card">
           <el-form :rules="rules" :model="registerForm" ref="registerForm">
-            <el-form-item :label="$t('registerPage.emailLabel')" prop="email">
-              <el-input type="email" v-model="registerForm.email" auto-complete="on" :placeholder="$t('registerPage.emailPlaceholder')"></el-input>
+            <el-form-item :label="$t('emailLabel')" prop="email">
+              <el-input type="email" v-model="registerForm.email" auto-complete="on" :placeholder="$t('emailPlaceholder')"></el-input>
             </el-form-item>
-            <el-form-item :label="$t('registerPage.displayNameLabel')" prop="displayName">
-              <el-input type="text" v-model="registerForm.displayName" auto-complete="on" :placeholder="$t('registerPage.displayNamePlaceholder')"></el-input>
+            <el-form-item :label="$t('displayNameLabel')" prop="displayName">
+              <el-input type="text" v-model="registerForm.displayName" auto-complete="on" :placeholder="$t('displayNamePlaceholder')"></el-input>
             </el-form-item>
-            <el-form-item :label="$t('registerPage.phoneNumberLabel')" prop="phoneNumber">
-              <el-input type="tel" v-model="registerForm.phoneNumber" auto-complete="on" :placeholder="$t('registerPage.phoneNumberPlaceholder')"></el-input>
+            <el-form-item :label="$t('phoneNumberLabel')" prop="phoneNumber">
+              <el-input type="tel" v-model="registerForm.phoneNumber" auto-complete="on" :placeholder="$t('phoneNumberPlaceholder')"></el-input>
             </el-form-item>
-            <el-form-item :label="$t('registerPage.passwordLabel')" prop="password">
-              <el-input type="password" v-model="registerForm.password" auto-complete="off" :placeholder="$t('registerPage.passwordPlaceholder')"></el-input>
+            <el-form-item :label="$t('passwordLabel')" prop="password">
+              <el-input type="password" v-model="registerForm.password" auto-complete="off" :placeholder="$t('passwordPlaceholder')"></el-input>
             </el-form-item>
             <br>
             <el-form-item>
-              <el-button type="primary" @click="onRegister">{{ $t('registerPage.submit') }}</el-button>
+              <el-button type="primary" @click="onRegister">{{ $t('submit') }}</el-button>
             </el-form-item>
           </el-form>
-          <p>{{ $t('registerPage.alreadyHaveAnAccount.message') }}</p>
-          <el-button type="success" @click="$router.push({ name: 'Login' })">{{ $t('registerPage.alreadyHaveAnAccount.button') }}</el-button>
+          <p>{{ $t('alreadyHaveAnAccount.message') }}</p>
+          <el-button type="success" @click="$router.push({ name: 'Login' })">{{ $t('alreadyHaveAnAccount.button') }}</el-button>
         </el-card>
       </el-col>
     </el-row>
@@ -32,9 +32,16 @@
 
 <script>
 import LightLayout from '@/layouts/Light';
+import Locale from './locale';
 
 export default {
   name: 'register-page',
+  /**
+   * Set component specific locale
+   */
+  i18n: {
+    messages: Locale,
+  },
   components: { LightLayout },
   data() {
     return {
@@ -57,29 +64,29 @@ export default {
       return {
         email: [{
           required: true,
-          message: this.$t('registerPage.rules.requiredField', {
-            fieldName: this.$t('registerPage.emailLabel'),
+          message: this.$t('rules.requiredField', {
+            fieldName: this.$t('emailLabel'),
           }),
         }, {
           type: 'email',
-          message: this.$t('registerPage.rules.typeEmail'),
+          message: this.$t('rules.typeEmail'),
         }],
         displayName: {
           required: true,
-          message: this.$t('registerPage.rules.requiredField', {
-            fieldName: this.$t('registerPage.displayNameLabel'),
+          message: this.$t('rules.requiredField', {
+            fieldName: this.$t('displayNameLabel'),
           }),
         },
         password: [{
           required: true,
-          message: this.$t('registerPage.rules.requiredField', {
-            fieldName: this.$t('registerPage.passwordLabel'),
+          message: this.$t('rules.requiredField', {
+            fieldName: this.$t('passwordLabel'),
           }),
         }, {
           min: 8,
           max: 30,
-          message: this.$t('registerPage.rules.sizeBetween', {
-            fieldName: this.$t('registerPage.passwordLabel'),
+          message: this.$t('rules.sizeBetween', {
+            fieldName: this.$t('passwordLabel'),
             min: 8,
             max: 30,
           }),
@@ -116,7 +123,7 @@ export default {
              * Show success message
              */
             this.$message({
-              message: 'You are registered',
+              message: this.$t('onRegistered'),
               type: 'success',
             });
 

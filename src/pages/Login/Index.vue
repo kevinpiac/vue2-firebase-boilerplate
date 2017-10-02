@@ -1,23 +1,23 @@
 <template>
   <light-layout>
-    <h1>{{ $t('loginPage.title') }}</h1>
+    <h1>{{ $t('title') }}</h1>
     <el-row type="flex" justify="center">
       <el-col :span="7" :xs="{span:20}" :lg="{span:5}">
         <el-card class="box-card">
           <el-form :rules="rules" :model="loginForm" ref="loginForm">
-            <el-form-item :label="$t('loginPage.emailLabel')" prop="email">
-              <el-input type="email" v-model="loginForm.email" auto-complete="on" :placeholder="$t('loginPage.emailPlaceholder')"></el-input>
+            <el-form-item :label="$t('emailLabel')" prop="email">
+              <el-input type="email" v-model="loginForm.email" auto-complete="on" :placeholder="$t('emailPlaceholder')"></el-input>
             </el-form-item>
-            <el-form-item :label="$t('loginPage.passwordLabel')" prop="password">
-              <el-input type="password" v-model="loginForm.password" auto-complete="off" :placeholder="$t('loginPage.passwordPlaceholder')"></el-input>
+            <el-form-item :label="$t('passwordLabel')" prop="password">
+              <el-input type="password" v-model="loginForm.password" auto-complete="off" :placeholder="$t('passwordPlaceholder')"></el-input>
             </el-form-item>
             <br>
             <el-form-item>
-              <el-button type="primary" @click="onLogin">{{ $t('loginPage.submit') }}</el-button>
+              <el-button type="primary" @click="onLogin">{{ $t('submit') }}</el-button>
             </el-form-item>
           </el-form>
-          <p>{{ $t('loginPage.dontHaveAnAccount.message') }}</p>
-          <el-button type="success" @click="$router.push({ name: 'Register' })">{{ $t('loginPage.dontHaveAnAccount.button') }}</el-button>
+          <p>{{ $t('dontHaveAnAccount.message') }}</p>
+          <el-button type="success" @click="$router.push({ name: 'Register' })">{{ $t('dontHaveAnAccount.button') }}</el-button>
         </el-card>
       </el-col>
     </el-row>
@@ -26,9 +26,16 @@
 
 <script>
 import LightLayout from '@/layouts/Light';
+import Locale from './locale';
 
 export default {
   name: 'login-page',
+  /**
+   * Set component specific locale
+   */
+  i18n: {
+    messages: Locale,
+  },
   components: { LightLayout },
   data() {
     return {
@@ -48,23 +55,23 @@ export default {
       return {
         email: [{
           required: true,
-          message: this.$t('loginPage.rules.requiredField', {
-            fieldName: this.$t('registerPage.emailLabel'),
+          message: this.$t('rules.requiredField', {
+            fieldName: this.$t('emailLabel'),
           }),
         }, {
           type: 'email',
-          message: this.$t('loginPage.rules.typeEmail'),
+          message: this.$t('rules.typeEmail'),
         }],
         password: [{
           required: true,
-          message: this.$t('loginPage.rules.requiredField', {
-            fieldName: this.$t('loginPage.passwordLabel'),
+          message: this.$t('rules.requiredField', {
+            fieldName: this.$t('passwordLabel'),
           }),
         }, {
           min: 8,
           max: 30,
-          message: this.$t('loginPage.rules.sizeBetween', {
-            fieldName: this.$t('loginPage.passwordLabel'),
+          message: this.$t('rules.sizeBetween', {
+            fieldName: this.$t('passwordLabel'),
             min: 8,
             max: 30,
           }),
@@ -89,7 +96,7 @@ export default {
            */
           this.$firebase.auth().signInWithEmailAndPassword(email, password).then((user) => {
             this.$message({
-              message: 'You are logged in',
+              message: this.$t('onLoggedIn'),
               type: 'success',
             });
 

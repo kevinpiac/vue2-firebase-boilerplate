@@ -9,6 +9,7 @@ export default {
   phoneNumberPlaceholder: '+33(6) 50 50 50 32',
   displayNameLabel: 'Nom complet',
   displayNamePlaceholder: 'Théo Dort',
+  onRegistered: 'Vous êtes enregistré',
   rules: {
     requiredField: 'Le champ {fieldName} est requis',
     typeEmail: "Le format d'email n'est pas valide",

@@ -4,24 +4,24 @@
       <br>
       <el-card class="box-card">
         <el-form :rules="rules" :model="credentialsForm" ref="credentialsFormEmail">
-          <el-form-item :label="$t('profilePage.tabs.credentials.credentialsForm.emailLabel')" prop="email">
-            <el-input type="email" v-model="credentialsForm.email" auto-complete="off" :placeholder="$t('profilePage.tabs.credentials.credentialsForm.emailPlaceholder')"></el-input>
+          <el-form-item :label="$t('tabs.credentials.credentialsForm.emailLabel')" prop="email">
+            <el-input type="email" v-model="credentialsForm.email" auto-complete="off" :placeholder="$t('tabs.credentials.credentialsForm.emailPlaceholder')"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="updateEmail">{{ $t('profilePage.tabs.credentials.credentialsForm.submit') }}</el-button>
-            <el-button @click="handleReset">{{ $t('profilePage.tabs.credentials.credentialsForm.reset' )}}</el-button>
+            <el-button type="primary" @click="updateEmail">{{ $t('tabs.credentials.credentialsForm.submit') }}</el-button>
+            <el-button @click="handleReset">{{ $t('tabs.credentials.credentialsForm.reset' )}}</el-button>
           </el-form-item>
         </el-form>
         <el-form :rules="rules" :model="credentialsForm" ref="credentialsFormPassword">
-          <el-form-item :label="$t('profilePage.tabs.credentials.credentialsForm.passwordLabel')" prop="password">
-            <el-input type="password" v-model="credentialsForm.password" auto-complete="off" :placeholder="$t('profilePage.tabs.credentials.credentialsForm.passwordPlaceholder')"></el-input>
+          <el-form-item :label="$t('tabs.credentials.credentialsForm.passwordLabel')" prop="password">
+            <el-input type="password" v-model="credentialsForm.password" auto-complete="off" :placeholder="$t('tabs.credentials.credentialsForm.passwordPlaceholder')"></el-input>
           </el-form-item>
-          <el-form-item :label="$t('profilePage.tabs.credentials.credentialsForm.passwordConfirmationLabel')" prop="passwordConfirmation">
-            <el-input type="password" v-model="credentialsForm.passwordConfirmation" auto-complete="off" :placeholder="$t('profilePage.tabs.credentials.credentialsForm.passwordConfirmationPlaceholder')"></el-input>
+          <el-form-item :label="$t('tabs.credentials.credentialsForm.passwordConfirmationLabel')" prop="passwordConfirmation">
+            <el-input type="password" v-model="credentialsForm.passwordConfirmation" auto-complete="off" :placeholder="$t('tabs.credentials.credentialsForm.passwordConfirmationPlaceholder')"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" align="left" @click="updatePassword">{{ $t('profilePage.tabs.credentials.credentialsForm.submit') }}</el-button>
-            <el-button @click="handleReset">{{ $t('profilePage.tabs.credentials.credentialsForm.reset' )}}</el-button>
+            <el-button type="primary" align="left" @click="updatePassword">{{ $t('tabs.credentials.credentialsForm.submit') }}</el-button>
+            <el-button @click="handleReset">{{ $t('tabs.credentials.credentialsForm.reset' )}}</el-button>
           </el-form-item>
         </el-form>
       </el-card>
@@ -32,9 +32,17 @@
 <script>
 import Reauthenticate from '@/mixins/Reauthenticate';
 import StoreGetters from '@/mixins/Store/getters';
+import Locale from '../locale';
 
 export default {
   name: 'credentials-tab',
+  /**
+   * Set component specific locale
+   */
+  i18n: {
+    messages: Locale,
+  },
+
   mixins: [Reauthenticate, StoreGetters],
   mounted() {
     this.initFormData();
@@ -58,36 +66,36 @@ export default {
       return {
         email: [{
           required: true,
-          message: this.$t('profilePage.tabs.credentials.credentialsForm.rules.requiredField', {
-            fieldName: this.$t('profilePage.tabs.credentials.credentialsForm.emailLabel'),
+          message: this.$t('tabs.credentials.credentialsForm.rules.requiredField', {
+            fieldName: this.$t('tabs.credentials.credentialsForm.emailLabel'),
           }),
         }, {
           type: 'email',
-          message: this.$t('profilePage.tabs.credentials.credentialsForm.rules.typeEmail'),
+          message: this.$t('tabs.credentials.credentialsForm.rules.typeEmail'),
         }],
         password: [{
           required: true,
-          message: this.$t('profilePage.tabs.credentials.credentialsForm.rules.requiredField', {
-            fieldName: this.$t('profilePage.tabs.credentials.credentialsForm.passwordLabel'),
+          message: this.$t('tabs.credentials.credentialsForm.rules.requiredField', {
+            fieldName: this.$t('tabs.credentials.credentialsForm.passwordLabel'),
           }),
         }, {
           min: 8,
           max: 30,
-          message: this.$t('profilePage.tabs.credentials.credentialsForm.rules.sizeBetween', {
-            fieldName: this.$t('profilePage.tabs.credentials.credentialsForm.passwordLabel'),
+          message: this.$t('tabs.credentials.credentialsForm.rules.sizeBetween', {
+            fieldName: this.$t('tabs.credentials.credentialsForm.passwordLabel'),
             min: 8,
             max: 30,
           }),
         }],
         passwordConfirmation: [{
           required: true,
-          message: this.$t('profilePage.tabs.credentials.credentialsForm.rules.requiredField', {
-            fieldName: this.$t('profilePage.tabs.credentials.credentialsForm.passwordConfirmationLabel'),
+          message: this.$t('tabs.credentials.credentialsForm.rules.requiredField', {
+            fieldName: this.$t('tabs.credentials.credentialsForm.passwordConfirmationLabel'),
           }),
         }, {
           validator: (rule, value, cb) => {
             if (value !== this.credentialsForm.password) {
-              cb(new Error(this.$t('profilePage.tabs.credentials.credentialsForm.rules.passwordAreEqual')));
+              cb(new Error(this.$t('tabs.credentials.credentialsForm.rules.passwordAreEqual')));
             } else {
               cb();
             }
@@ -131,7 +139,7 @@ export default {
              * Show toast message
              */
             this.$message({
-              message: this.$t('profilePage.tabs.credentials.credentialsForm.onEmailUpdated'),
+              message: this.$t('tabs.credentials.credentialsForm.onEmailUpdated'),
               type: 'success',
             });
           }).catch((err) => {
@@ -157,7 +165,7 @@ export default {
           const user = this.$firebase.auth().currentUser;
           user.updatePassword(this.credentialsForm.password).then(() => {
             this.$message({
-              message: this.$t('profilePage.tabs.credentials.credentialsForm.onPasswordUpdated'),
+              message: this.$t('tabs.credentials.credentialsForm.onPasswordUpdated'),
               type: 'success',
             });
           }).catch((err) => {

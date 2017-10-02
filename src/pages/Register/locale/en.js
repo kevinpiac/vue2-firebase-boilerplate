@@ -9,6 +9,7 @@ export default {
   phoneNumberPlaceholder: '+33(6) 50 50 50 32',
   displayNameLabel: 'Name',
   displayNamePlaceholder: 'Sherlock Holmes',
+  onRegistered: 'You are now registered',
   rules: {
     requiredField: 'The {fieldName} value is required',
     typeEmail: 'The email format is not valid',

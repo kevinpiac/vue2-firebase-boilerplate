@@ -7,7 +7,15 @@
  * using firebase SDK
  */
 
+/**
+* import component specific locale
+*/
+import Locale from './locale';
+
 export default {
+  i18n: {
+    messages: Locale,
+  },
   methods: {
     /**
      * Reauthenticate a user with firebase sdk
@@ -37,7 +45,7 @@ export default {
        * http://element.eleme.io/#/en-US/component/message-box
        */
       return this.$msgbox({
-        title: this.$t('reauthenticateMixin.boxTitle'),
+        title: this.$t('boxTitle'),
         /**
          * small hack to create a custom password input inside the messageBox
          */
@@ -46,14 +54,14 @@ export default {
             attrs: {
               type: 'password',
               id: 'prompt-password-input',
-              placeholder: this.$t('reauthenticateMixin.passwordPlaceholder'),
+              placeholder: this.$t('passwordPlaceholder'),
             },
             class: 'el-input__inner',
           }),
         ]),
         showCancelButton: true,
-        confirmButtonText: this.$t('reauthenticateMixin.confirmation'),
-        cancelButtonText: this.$t('reauthenticateMixin.cancel'),
+        confirmButtonText: this.$t('confirmation'),
+        cancelButtonText: this.$t('cancel'),
         beforeClose: (action, instance, done) => {
           /**
            * get user's password input
@@ -72,13 +80,13 @@ export default {
              */
             this.reauthenticateWithPassword(password).then(() => {
               this.$message({
-                message: this.$t('reauthenticateMixin.successMessage'),
+                message: this.$t('successMessage'),
                 type: 'success',
               });
               done();
             }).catch(() => {
               this.$message({
-                message: this.$t('reauthenticateMixin.failureMessage'),
+                message: this.$t('failureMessage'),
                 type: 'error',
               });
             });
