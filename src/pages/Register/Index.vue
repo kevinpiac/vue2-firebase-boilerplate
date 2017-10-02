@@ -2,8 +2,11 @@
   <light-layout>
     <h1>{{ $t('title') }}</h1>
     <el-row type="flex" justify="center">
-      <el-col :span="7" :xs="{span:20}" :lg="{span:5}">
+      <el-col :span="10" :xs="{span:20}" :lg="{span:10}">
         <el-card class="box-card">
+          <div slot="header" class="clearfix">
+            <span style="line-height: 36px;">{{ $t('title') }}</span>
+          </div>
           <el-form :rules="rules" :model="registerForm" ref="registerForm">
             <el-form-item :label="$t('emailLabel')" prop="email">
               <el-input type="email" v-model="registerForm.email" auto-complete="on" :placeholder="$t('emailPlaceholder')"></el-input>
