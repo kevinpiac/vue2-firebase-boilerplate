@@ -1,4 +1,5 @@
 export default {
+  dropdown: 'Bienvenue, {name}',
   pages: {
     login: 'Se connecter',
     logout: 'Se déconnecter',

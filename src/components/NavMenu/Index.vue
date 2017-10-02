@@ -22,7 +22,7 @@
         <el-menu-item index="profileDropdown">
           <el-dropdown trigger="click" @command="goToRouteName">
             <span style="color: white;">
-              Welcome, {{ currentUserDisplayName }}<i class="el-icon-caret-bottom el-icon--right"></i>
+              {{ $t('dropdown', { name: currentUserDisplayName }) }}<i class="el-icon-caret-bottom el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item
