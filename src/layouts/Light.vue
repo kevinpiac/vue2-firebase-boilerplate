@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <nav-menu :items="items"></nav-menu>
+    <nav-menu></nav-menu>
     <slot></slot>
   </div>
 </template>
@@ -11,14 +11,6 @@ import NavMenu from '@/components/NavMenu/Index';
 export default {
   name: 'light-layout',
   components: { NavMenu },
-  computed: {
-    items() {
-      return [
-        { label: this.$t('message.login'), name: 'Login' },
-        { label: this.$t('message.register'), name: 'Register' },
-      ];
-    },
-  },
 };
 </script>
 
