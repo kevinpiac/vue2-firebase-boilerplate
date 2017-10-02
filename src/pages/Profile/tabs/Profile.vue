@@ -72,6 +72,11 @@ export default {
       };
     },
   },
+  watch: {
+    currentUser() {
+      this.initData();
+    },
+  },
   methods: {
     initData() {
       /**

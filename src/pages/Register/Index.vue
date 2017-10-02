@@ -117,7 +117,11 @@ export default {
              * we don't need to wait promise is resolved.
              * This might change in next version.
              */
-            user.updateProfile({ displayName, phoneNumber });
+            user.updateProfile({ displayName, phoneNumber }).then(() => {
+              this.$store.dispatch('auth/updateUser');
+            }).catch(() => {
+              //
+            });
 
             /**
              * Show success message
