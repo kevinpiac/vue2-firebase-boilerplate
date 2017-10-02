@@ -80,11 +80,21 @@ export default {
        */
       this.$refs.profileForm.validate((valid) => {
         if (valid) {
+          /**
+           * Update the user's profile in firebase
+           *
+           * https://firebase.google.com/docs/auth/web/manage-users#update_a_users_profile
+           */
           const user = this.$firebase.auth().currentUser;
           user.updateProfile({
             displayName: this.profileForm.fullName,
             phoneNumber: this.profileForm.phone,
           }).then(() => {
+            /**
+             * Update the $store's state
+             */
+            this.$store.dispatch('auth/updateUser');
+
             this.$message({
               message: this.$t('profilePage.tabs.profile.profileForm.onProfileUpdated'),
               type: 'success',
