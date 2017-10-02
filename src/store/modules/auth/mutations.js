@@ -25,4 +25,15 @@
      state.authenticated = false;
      state.user = null;
    },
+   /**
+    * Update user data
+    */
+   [types.UPDATE_USER](state, user) {
+     /**
+      * Set user to null allows to be sure that changes are detected by the scope
+      */
+     state.user = null;
+
+     state.user = user;
+   },
  };

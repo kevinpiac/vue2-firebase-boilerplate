@@ -61,6 +61,13 @@ const getUserStatus = function () {
   });
 };
 
+
+/**
+ * =====================================
+ * Following funcs are used in the store
+ * =====================================
+ */
+
 /**
  * Logout the user
  */
@@ -70,4 +77,11 @@ const logout = function () {
   });
 };
 
-export default { getUserStatus, logout };
+/**
+ * Get current user
+ */
+const currentUser = function () {
+  return Firebase.auth().currentUser;
+};
+
+export default { getUserStatus, logout, currentUser };

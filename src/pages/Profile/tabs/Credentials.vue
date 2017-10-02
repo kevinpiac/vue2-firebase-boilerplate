@@ -2,6 +2,7 @@
   <el-row type="flex" justify="center">
     <el-col :span="7">
       <br>
+      {{ currentUserEmail }}
       <el-card class="box-card">
         <el-form :rules="rules" :model="credentialsForm" ref="credentialsFormEmail">
           <el-form-item :label="$t('profilePage.tabs.credentials.credentialsForm.emailLabel')" prop="email">
@@ -31,10 +32,11 @@
 
 <script>
 import Reauthenticate from '@/mixins/Reauthenticate';
+import StoreGetters from '@/mixins/StoreGetters';
 
 export default {
   name: 'credentials-tab',
-  mixins: [Reauthenticate],
+  mixins: [Reauthenticate, StoreGetters],
   mounted() {
     this.initFormData();
   },
@@ -121,6 +123,14 @@ export default {
            * Update email value
            */
           user.updateEmail(this.credentialsForm.email).then(() => {
+            /**
+             * Update the $store's state
+             */
+            this.$store.dispatch('auth/updateUser');
+
+            /**
+             * Show toast message
+             */
             this.$message({
               message: this.$t('profilePage.tabs.credentials.credentialsForm.onEmailUpdated'),
               type: 'success',
