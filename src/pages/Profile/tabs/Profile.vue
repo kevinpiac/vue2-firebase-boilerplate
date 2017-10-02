@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import StoreGetters from '@/mixins/StoreGetters';
+import StoreGetters from '@/mixins/Store/getters';
 
 export default {
   name: 'profile-tab',

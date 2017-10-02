@@ -31,7 +31,7 @@
 
 <script>
 import Reauthenticate from '@/mixins/Reauthenticate';
-import StoreGetters from '@/mixins/StoreGetters';
+import StoreGetters from '@/mixins/Store/getters';
 
 export default {
   name: 'credentials-tab',
