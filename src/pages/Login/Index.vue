@@ -75,11 +75,11 @@ export default {
             fieldName: this.$t('passwordLabel'),
           }),
         }, {
-          min: 8,
+          min: 6,
           max: 30,
           message: this.$t('rules.sizeBetween', {
             fieldName: this.$t('passwordLabel'),
-            min: 8,
+            min: 6,
             max: 30,
           }),
         }],

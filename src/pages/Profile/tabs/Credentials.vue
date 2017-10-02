@@ -79,11 +79,11 @@ export default {
             fieldName: this.$t('tabs.credentials.credentialsForm.passwordLabel'),
           }),
         }, {
-          min: 8,
+          min: 6,
           max: 30,
           message: this.$t('tabs.credentials.credentialsForm.rules.sizeBetween', {
             fieldName: this.$t('tabs.credentials.credentialsForm.passwordLabel'),
-            min: 8,
+            min: 6,
             max: 30,
           }),
         }],
