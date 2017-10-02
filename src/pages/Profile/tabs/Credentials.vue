@@ -2,7 +2,6 @@
   <el-row type="flex" justify="center">
     <el-col :span="7">
       <br>
-      {{ currentUserEmail }}
       <el-card class="box-card">
         <el-form :rules="rules" :model="credentialsForm" ref="credentialsFormEmail">
           <el-form-item :label="$t('profilePage.tabs.credentials.credentialsForm.emailLabel')" prop="email">
