@@ -1,6 +1,5 @@
 export default {
   title: 'Mes informations personnelles',
-  passwordPlaceholder: 'votre nouveau mot de passe',
   tabs: {
     profile: {
       paneLabel: 'Mon profil',
@@ -29,6 +28,12 @@ export default {
         passwordConfirmationPlaceholder: 'confirmez le nouveau mot de passe',
         onPasswordUpdated: 'Votre mot de passer a été mis à jour',
         onEmailUpdated: 'Votre email a été mis à jour',
+        rules: {
+          requiredField: 'Le champ {fieldName} est requis',
+          typeEmail: "Le format d'email n'est pas valide",
+          sizeBetween: 'Le champ {fieldName} doit contenir entre {min} et {max} caractères',
+          passwordAreEqual: 'Les deux mots de passent doivent être identiques',
+        },
       },
     },
   },

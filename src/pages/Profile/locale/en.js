@@ -28,6 +28,12 @@ export default {
         passwordConfirmationPlaceholder: 'confirm the new password',
         onPasswordUpdated: 'Your password has been updated',
         onEmailUpdated: 'Your email has been updated',
+        rules: {
+          requiredField: 'The {fieldName} value is required',
+          typeEmail: 'The email format is not valid',
+          sizeBetween: 'The {fieldName} must contain between {min} and {max} characters',
+          passwordAreEqual: 'Password and confirmation must be equal',
+        },
       },
     },
   },

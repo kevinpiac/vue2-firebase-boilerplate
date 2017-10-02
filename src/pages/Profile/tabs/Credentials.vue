@@ -3,7 +3,7 @@
     <el-col :span="7">
       <br>
       <el-card class="box-card">
-        <el-form :model="credentialsForm">
+        <el-form :rules="rules" :model="credentialsForm" ref="credentialsFormEmail">
           <el-form-item :label="$t('profilePage.tabs.credentials.credentialsForm.emailLabel')" prop="email">
             <el-input type="email" v-model="credentialsForm.email" auto-complete="off" :placeholder="$t('profilePage.tabs.credentials.credentialsForm.emailPlaceholder')"></el-input>
           </el-form-item>
@@ -12,11 +12,11 @@
             <el-button @click="handleReset">{{ $t('profilePage.tabs.credentials.credentialsForm.reset' )}}</el-button>
           </el-form-item>
         </el-form>
-        <el-form :model="credentialsForm">
+        <el-form :rules="rules" :model="credentialsForm" ref="credentialsFormPassword">
           <el-form-item :label="$t('profilePage.tabs.credentials.credentialsForm.passwordLabel')" prop="password">
             <el-input type="password" v-model="credentialsForm.password" auto-complete="off" :placeholder="$t('profilePage.tabs.credentials.credentialsForm.passwordPlaceholder')"></el-input>
           </el-form-item>
-          <el-form-item :label="$t('profilePage.tabs.credentials.credentialsForm.passwordConfirmationLabel')" prop="password">
+          <el-form-item :label="$t('profilePage.tabs.credentials.credentialsForm.passwordConfirmationLabel')" prop="passwordConfirmation">
             <el-input type="password" v-model="credentialsForm.passwordConfirmation" auto-complete="off" :placeholder="$t('profilePage.tabs.credentials.credentialsForm.passwordConfirmationPlaceholder')"></el-input>
           </el-form-item>
           <el-form-item>
@@ -42,10 +42,58 @@ export default {
     return {
       credentialsForm: {
         email: null,
-        password: null,
-        passwordConfirmation: null,
+        password: '',
+        passwordConfirmation: '',
       },
     };
+  },
+  computed: {
+    /**
+     * Important!
+     * Keep rules in computed property to be sure the translation works
+     * on selected language changes
+     */
+    rules() {
+      return {
+        email: [{
+          required: true,
+          message: this.$t('profilePage.tabs.credentials.credentialsForm.rules.requiredField', {
+            fieldName: this.$t('profilePage.tabs.credentials.credentialsForm.emailLabel'),
+          }),
+        }, {
+          type: 'email',
+          message: this.$t('profilePage.tabs.credentials.credentialsForm.rules.typeEmail'),
+        }],
+        password: [{
+          required: true,
+          message: this.$t('profilePage.tabs.credentials.credentialsForm.rules.requiredField', {
+            fieldName: this.$t('profilePage.tabs.credentials.credentialsForm.passwordLabel'),
+          }),
+        }, {
+          min: 8,
+          max: 30,
+          message: this.$t('profilePage.tabs.credentials.credentialsForm.rules.sizeBetween', {
+            fieldName: this.$t('profilePage.tabs.credentials.credentialsForm.passwordLabel'),
+            min: 8,
+            max: 30,
+          }),
+        }],
+        passwordConfirmation: [{
+          required: true,
+          message: this.$t('profilePage.tabs.credentials.credentialsForm.rules.requiredField', {
+            fieldName: this.$t('profilePage.tabs.credentials.credentialsForm.passwordConfirmationLabel'),
+          }),
+        }, {
+          validator: (rule, value, cb) => {
+            if (value !== this.credentialsForm.password) {
+              cb(new Error(this.$t('profilePage.tabs.credentials.credentialsForm.rules.passwordAreEqual')));
+            } else {
+              cb();
+            }
+          },
+        }],
+      };
+    },
   },
   methods: {
     initFormData() {
@@ -57,36 +105,61 @@ export default {
       this.initFormData();
     },
     updateEmail() {
-      const user = this.$firebase.auth().currentUser;
-      user.updateEmail(this.credentialsForm.email).then(() => {
-        this.$message({
-          message: this.$t('profilePage.tabs.credentials.credentialsForm.onEmailUpdated'),
-          type: 'success',
-        });
-      }).catch((err) => {
-        if (err.code === 'auth/requires-recent-login') {
-          this.askForPassword().then(() => {
-            this.handleReset();
-          }).catch(() => {
-            this.handleReset();
+      /**
+       * Check for validation using Element validation
+       *
+       * http://element.eleme.io/#/en-US/component/form
+       */
+      this.$refs.credentialsFormEmail.validate((valid) => {
+        if (valid) {
+          /**
+           * Get current user instance with firebase sdk
+           */
+          const user = this.$firebase.auth().currentUser;
+
+          /**
+           * Update email value
+           */
+          user.updateEmail(this.credentialsForm.email).then(() => {
+            this.$message({
+              message: this.$t('profilePage.tabs.credentials.credentialsForm.onEmailUpdated'),
+              type: 'success',
+            });
+          }).catch((err) => {
+            if (err.code === 'auth/requires-recent-login') {
+              this.askForPassword().then(() => {
+                this.handleReset();
+              }).catch(() => {
+                this.handleReset();
+              });
+            }
           });
         }
       });
     },
     updatePassword() {
-      const user = this.$firebase.auth().currentUser;
-      user.updatePassword(this.credentialsForm.password).then(() => {
-        this.$message({
-          message: this.$t('profilePage.tabs.credentials.credentialsForm.onPasswordUpdated'),
-          type: 'success',
-        });
-      }).catch((err) => {
-        this.$message(err.message);
-        if (err.code === 'auth/requires-recent-login') {
-          this.askForPassword().then(() => {
-            this.handleReset();
-          }).catch(() => {
-            this.handleReset();
+      /**
+       * Check for validation using Element validation
+       *
+       * http://element.eleme.io/#/en-US/component/form
+       */
+      this.$refs.credentialsFormPassword.validate((valid) => {
+        if (valid) {
+          const user = this.$firebase.auth().currentUser;
+          user.updatePassword(this.credentialsForm.password).then(() => {
+            this.$message({
+              message: this.$t('profilePage.tabs.credentials.credentialsForm.onPasswordUpdated'),
+              type: 'success',
+            });
+          }).catch((err) => {
+            this.$message(err.message);
+            if (err.code === 'auth/requires-recent-login') {
+              this.askForPassword().then(() => {
+                this.handleReset();
+              }).catch(() => {
+                this.handleReset();
+              });
+            }
           });
         }
       });
