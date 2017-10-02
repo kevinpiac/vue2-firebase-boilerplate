@@ -17,4 +17,10 @@ module.exports = {
   PROJECT_ID: '""',
   STORAGE_BUCKET: '""',
   MESSAGING_SENDER_ID: '""',
+
+  /**
+   * IMPORTANT!
+   * Used on reset password redirect link
+   */
+  APP_LOGIN_URL: '""',
 }

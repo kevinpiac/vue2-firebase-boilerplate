@@ -4,6 +4,9 @@
     <el-row type="flex" justify="center">
       <el-col :span="7" :xs="{span:20}" :lg="{span:5}">
         <el-card class="box-card">
+          <div slot="header" class="clearfix">
+            <span style="line-height: 36px;">{{ $t('title') }}</span>
+          </div>
           <el-form :rules="rules" :model="loginForm" ref="loginForm">
             <el-form-item :label="$t('emailLabel')" prop="email">
               <el-input type="email" v-model="loginForm.email" auto-complete="on" :placeholder="$t('emailPlaceholder')"></el-input>
@@ -16,6 +19,10 @@
               <el-button type="primary" @click="onLogin">{{ $t('submit') }}</el-button>
             </el-form-item>
           </el-form>
+          <router-link :to="{ name: 'ResetPassword', params: {} }">{{ $t('forgotPassword') }}</router-link>
+        </el-card>
+        <br>
+        <el-card class="">
           <p>{{ $t('dontHaveAnAccount.message') }}</p>
           <el-button type="success" @click="$router.push({ name: 'Register' })">{{ $t('dontHaveAnAccount.button') }}</el-button>
         </el-card>

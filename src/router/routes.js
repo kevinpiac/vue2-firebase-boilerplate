@@ -31,6 +31,14 @@ const routes = [
     },
   },
   {
+    path: '/resetPassword',
+    name: 'ResetPassword',
+    component: () => import('@/pages/ResetPassword/Index'),
+    meta: {
+      guest: true,
+    },
+  },
+  {
     path: '/logout',
     name: 'Logout',
     beforeEnter(to, from, next) {

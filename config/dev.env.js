@@ -21,4 +21,10 @@ module.exports = merge(prodEnv, {
   PROJECT_ID: '"sample-firebase-app-d87f0"',
   STORAGE_BUCKET: '""',
   MESSAGING_SENDER_ID: '"748690741616"',
-})
+
+  /**
+   * IMPORTANT!
+   * Used on reset password redirect link
+   */
+  APP_LOGIN_URL: '"http://localhost/"',
+});
