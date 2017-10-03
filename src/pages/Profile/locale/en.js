@@ -36,5 +36,23 @@ export default {
         },
       },
     },
+    company: {
+      paneLabel: 'My company',
+      companyForm: {
+        submit: 'Save',
+        companyNameLabel: 'Company name',
+        companyNamePlaceholder: 'Apple Inc',
+        addressLabel: 'Address',
+        addressPlaceholder: '333 murphy avenue',
+        onDataUpdate: 'Your info has been updated',
+        onFailure: 'An error occurred, please try again',
+        rules: {
+          requiredField: 'The {fieldName} value is required',
+          typeEmail: 'The email format is not valid',
+          sizeBetween: 'The {fieldName} must contain between {min} and {max} characters',
+          passwordAreEqual: 'Password and confirmation must be equal',
+        },
+      },
+    },
   },
 };

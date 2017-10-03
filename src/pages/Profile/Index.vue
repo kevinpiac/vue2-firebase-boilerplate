@@ -7,6 +7,9 @@
           <el-tab-pane :label="$t('tabs.profile.paneLabel')" name="profilePane">
             <profile-tab></profile-tab>
           </el-tab-pane>
+          <el-tab-pane :label="$t('tabs.company.paneLabel')" name="companyPane">
+            <company-tab></company-tab>
+          </el-tab-pane>
           <el-tab-pane :label="$t('tabs.credentials.paneLabel')" name="credentialsPane">
             <credentials-tab></credentials-tab>
           </el-tab-pane>
@@ -20,6 +23,7 @@
 import DefaultLayout from '@/layouts/Default';
 import CredentialsTab from './tabs/Credentials';
 import ProfileTab from './tabs/Profile';
+import CompanyTab from './tabs/Company';
 import Locale from './locale';
 
 export default {
@@ -31,10 +35,10 @@ export default {
     messages: Locale,
   },
 
-  components: { DefaultLayout, CredentialsTab, ProfileTab },
+  components: { DefaultLayout, CredentialsTab, ProfileTab, CompanyTab },
   data() {
     return {
-      activeName: 'profilePane',
+      activeName: 'companyPane',
     };
   },
 };

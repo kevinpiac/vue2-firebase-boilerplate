@@ -36,5 +36,20 @@ export default {
         },
       },
     },
+    company: {
+      paneLabel: 'Mon entreprise',
+      companyForm: {
+        submit: 'Sauvegarder',
+        companyNameLabel: "Nom de l'entreprise",
+        companyNamePlaceholder: 'Danone SA',
+        addressLabel: 'Adresse',
+        addressPlaceholder: '333 rue de la pompe',
+        onDataUpdate: 'Vos informations ont été mises à jour',
+        onFailure: 'Une erreur est survenue, merci de réessayer',
+        rules: {
+          requiredField: 'Le champ {fieldName} est requis',
+        },
+      },
+    },
   },
 };

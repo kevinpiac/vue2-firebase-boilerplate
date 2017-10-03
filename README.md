@@ -2,6 +2,8 @@
 
 ![logo](./doc/rocket-start.jpg)
 
+## 🔥 WORK IN PROGRESS 🔥
+
 ## Description
 
 VueRocket is a Vuejs 2 + 🔥 Firebase boilerplate for making medium to large web apps.
