@@ -98,7 +98,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="stylus">
+@import '../../assets/stylus/main';
+
+.main-menu {
+  background: $light
+}
 .main-menu {
   border-radius: 0!important;
 }

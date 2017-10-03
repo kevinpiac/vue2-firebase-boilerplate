@@ -10,20 +10,6 @@ export default {
 };
 </script>
 
-<style>
-html, body {
-  margin: 0!important;
-  padding: 0!important;
-
-  font-family: 'Avenir', Helvetica, Arial, sans-serif!important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  
-  background-color: whitesmoke;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  text-align: center;
-}
+<style lang="stylus">
+@import 'assets/stylus/main';
 </style>

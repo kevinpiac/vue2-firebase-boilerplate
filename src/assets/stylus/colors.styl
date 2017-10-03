@@ -1,0 +1,61 @@
+/**
+ * ===================
+ * Colors configuration
+ * ===================
+ *
+ * This file groups each available colors.
+ * You can use it as a starting point or delete it if you prefer to use your
+ * own logic.
+ */
+
+
+
+/**
+ * Colors Base
+ */
+$blue = #20A0FF
+$green = #13CE66
+$yellow = #F7BA2A
+$red = #FF4949
+$black = #1F2D3D
+$silver = #8492A6
+$gray = #D3DCE6
+$white = #FFFFFF
+
+/**
+ * Sentiment Colors
+ *
+ * It's always better to use abstraction when it's possible.
+ * That's why sentiment colors are there.
+ */
+$primary = $blue
+$success = $green
+$info = $yellow
+$warning = $yellow
+$danger = $red
+
+/**
+ * Functions
+ *
+ * Each color can be lighten or darken using functions below
+ * ie: light($color-blue) OR extraLight($color-blue) ...
+ *
+ * Don't use directly lighten or darken built-in functions
+ */
+light($color)
+  lighten($color, 20%)
+
+lighter($color)
+  lighten($color, 50%)
+
+extraLight($color)
+  lighten($color, 80%)
+
+dark($color)
+  darken($color, 20%)
+
+darker($color)
+  darken($color, 50%)
+
+extraDark($color)
+  darken($color, 80%)
