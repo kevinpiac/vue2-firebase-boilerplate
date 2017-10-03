@@ -2,23 +2,98 @@
  * ==================
  * MAIN STYLUS FILE
  * ==================
+ *
+ * HOW IT WORKS
+ *
+ * Variables are defined in separated files like ./common/colors.styl
+ * A theme is defined in theme.styl ; The theme stores every editable values
+ * for instance  menu-height, menu-background, button-size and so on...
+ *
+ * Then this file (main.styl), applies variables and theme to the application.
+ * For instance
+ * .el-menu--horizontal {
+ *   height $menu-height
+ *   line-height $menu-height
+ * }
+ *
+ * In the example above ".el-menu--horizontal" class is defined and used by
+ * Element Plugin. We can not really interact with this plugin to create
+ * a custom theme, but we can tweak each class we want, that's what I did here.
+ *
+ * Because "height" and "line-height" are responsible of the size we give them the
+ * variable $menu-height as value. Then, only changing the variable in the Theme file
+ * will change the menu size.
+ *
+ * By repeating this process you could create your own theme.
+ * It's like a tweak, but it works.
+ *
  */
 
-@import './colors'
+@import './vars'
 @import './theme'
 
-html, body {
-  margin: 0!important;
-  padding: 0!important;
+html, body
+  margin 0!important;
+  padding 0!important;
 
-  font-family: 'Avenir', Helvetica, Arial, sans-serif!important
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-  color: #2c3e50
+  font-family $main-font-family, $fallback-font-family, $last-chance-font-family, sans-serif
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  color #2c3e50
 
-  background-color: extraLight($gray)
-}
 
-h1, h2, h3, h4, h5, h6 {
-  text-align: center;
-}
+/**
+ * ==========
+ * TYPO
+ * ==========
+ */
+h1, h2, h3, h4, h5, h6
+  text-align center;
+
+h1
+  font-size $extra-large
+
+h2
+  font-size $large
+
+h3
+  font-size $medium
+
+h4
+  font-size $small
+
+h5
+  font-size $extra-small
+
+h6
+  font-size $super-small
+
+
+/**
+ * ==========
+ * NAV MENU
+ * ==========
+ */
+.el-menu
+  background-color $menu-background
+
+.el-menu--horizontal .el-menu-item
+  height $menu-height
+  line-height $menu-height
+  color $menu-item-color
+  font-weight $menu-item-font-weight
+  background-color $menu-background
+
+  &:hover
+    background-color dark($menu-background)
+
+  >.el-dropdown >span
+    padding ($menu-height / 3)
+
+
+
+
+
+
+
+//

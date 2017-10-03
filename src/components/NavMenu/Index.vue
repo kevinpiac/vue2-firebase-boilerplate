@@ -1,6 +1,5 @@
 <template lang="html">
   <el-menu
-    theme="dark"
     class="main-menu"
     mode="horizontal">
     <el-row type="flex" justify="space-between">
@@ -100,11 +99,4 @@ export default {
 
 <style lang="stylus">
 @import '../../assets/stylus/main';
-
-.main-menu {
-  background: $light
-}
-.main-menu {
-  border-radius: 0!important;
-}
 </style>
