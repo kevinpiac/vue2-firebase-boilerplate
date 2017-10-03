@@ -1,6 +1,6 @@
 <template lang="html">
   <el-row type="flex" justify="center">
-    <el-col :span="10">
+    <el-col :span="10" :xs="{span:20}" :lg="{span:10}">
       <h1>🔥 WORK IN PROGRESS 🔥</h1>
       <br>
       <el-card>

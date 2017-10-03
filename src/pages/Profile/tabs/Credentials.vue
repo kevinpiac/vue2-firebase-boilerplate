@@ -1,6 +1,6 @@
 <template lang="html">
   <el-row type="flex" justify="center">
-    <el-col :span="7">
+    <el-col :span="10" :xs="{span:20}" :lg="{span:10}">
       <br>
       <el-card class="box-card">
         <el-form :rules="rules" :model="credentialsForm" ref="credentialsFormEmail">

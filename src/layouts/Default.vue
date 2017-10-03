@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div class="layout">
     <nav-menu></nav-menu>
     <slot></slot>
   </div>
@@ -14,5 +14,5 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="stylus">
 </style>
