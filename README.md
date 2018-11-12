@@ -1,8 +1,8 @@
 # A Vue 2 + Firebase Boilerplate
 
-![logo](./doc/rocket-start.jpg)
+## DEPRECATED
 
-## 🔥 WORK IN PROGRESS 🔥
+![logo](./doc/rocket-start.jpg)
 
 ## Description
 
